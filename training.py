@@ -17,10 +17,13 @@ inputs = dataset[:,1:5]
 input = pre.dataNormalization(inputs)
 
 #spliting data into train and test data
-trainInput,testInput,trainTarget,testTarget = train_test_split( input, target, test_size = 0.25, random_state = 100)
+trainInput,testInput,trainTarget,testTarget = train_test_split( input, target, test_size = 0.3, random_state = 100)
+
+#fitting clissifier using gini
+classifier = DecisionTreeClassifier(criterion = "gini", random_state = 100)
 
 #fitting clissifier using entropy/gain
-classifier = DecisionTreeClassifier(criterion = "entropy", random_state = 100)
+#classifier = DecisionTreeClassifier(criterion = "entropy", random_state = 100)
 
 classifier.fit(trainInput, trainTarget)
 
